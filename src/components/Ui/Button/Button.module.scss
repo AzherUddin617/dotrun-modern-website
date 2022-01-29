@@ -1,0 +1,96 @@
+@import '../../../global/variables.scss';
+
+.Button {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  
+  &.Big {
+    &:hover {
+
+      .TextContents .Text.Hover {
+        transform: translateY(calc(-100% - 0.6rem));
+      }
+    }
+    .TextContents .Text {
+      padding: 1.2rem 3rem;
+
+      &.Hover {
+        height: calc(100% + 1rem);
+        padding-top: calc(0.8rem + 2px + 1rem);
+        top: calc(100% + 1rem);
+        transform: translateY(50%);
+      }
+    }
+  }
+  &.Fill .TextContents {
+    background-color: $colorPrimary;
+    transition: background-color 0.4s ease-in;
+    transition-property: background-color, border-color;
+
+    &:hover {
+      background-color: $colorSecondary;
+      border-color: $colorSecondary;
+
+      .Text {
+        color: rgba($colorBlack, 0);
+      }
+      .Text.Hover {
+        color: $colorWhite;
+        border-color: $colorSecondary;
+        background-color: $colorSecondary;
+      }
+    }
+    .Text {
+      color: $colorBlack;
+
+      &.Hover {
+        color: $colorWhite;
+        transition-property: color, border-color, background-color, transform;
+        // transition-duration: 1s;
+        // transition-timing-function: ease;
+      }
+    }
+  }
+  &:hover {
+    .TextContents {
+
+      .Text {
+        transform: translateY(-100%);
+        
+        &.Hover {
+          color: $colorBlack;
+          transform: translateY(calc(-100% - 0.4rem));
+        }
+      }
+    }
+  }
+  
+  .TextContents {
+    border: 2px solid $colorPrimary;
+
+    .Text {
+      padding: 0.6rem 2rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $colorPrimary;
+      transform: translateY(0%);
+      transition: transform 0.4s ease-in, color 0.5s ease;
+      backface-visibility: hidden;
+  
+      &.Hover {
+        color: $colorBlack;
+        color: rgba($colorBlack, 0);
+        background-color: $colorPrimary;
+        position: absolute;
+        width: 100%;
+        height: calc(100% + 0.45rem);
+        padding-top: calc(0.6rem + 2px + .45rem);
+        left: 0;
+        top: calc(100% + .45rem);
+        transform: translateY(50%);
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@import '../../global/variables.scss';
+
+.Footer {
+  padding: 4rem 0;
+
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .Contents {
+      flex: 0 0 calc(50% - 1rem);
+      @media (max-width: 600px) {
+        flex: 0 0 100%;
+
+        &.Right .BottomTexts {
+          text-align: left;
+        }
+      }
+
+      &.Left {
+        color: $colorWhite;
+
+        a {
+          text-decoration: none;
+          color: $colorWhite;
+        }
+        .TextItem {
+          padding: 1rem 0;
+          max-width: 400px;
+
+          .Title {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 1rem;
+          }
+          .Link {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            font-weight: 500;
+            transition: color 0.4s ease;
+
+            &:hover {
+              color: $colorPrimary;
+            }
+          }
+          .NavLink {
+            // display: block;
+            margin-bottom: 0.3rem;
+          }
+        }
+      }
+      &.Right {
+        // padding-top: 10%;
+        align-self: flex-end;
+      }
+      .BottomTexts {
+        text-align: right;
+
+        .Text {
+          font-size: 1.1rem;
+          color: rgba($colorWhite, 0.6);
+          line-height: 1.6;
+          margin-bottom: 0.5rem;
+
+          a {
+            color: rgba($colorWhite, 0.8);
+            font-weight: 500;
+            transition: color 0.4s ease;
+
+            &:hover {
+              color: $colorPrimary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

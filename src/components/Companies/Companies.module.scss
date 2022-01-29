@@ -1,0 +1,45 @@
+@import '../../global/variables.scss';
+
+.Companies {
+  width: 100%;
+  padding: 8rem 0;
+  overflow-x: hidden;
+
+  .Contents {
+    display: flex;
+    align-items: center;
+    // transform: translateX(-100vw);
+    transition: transform 0.3s cubic-bezier(.32,.65,.49,.95);
+
+    .Title {
+      font-family: $fontBold;
+      color: $colorPrimary;
+      color: $colorSecondary;
+      &.Odd {
+        color: rgba($colorWhite, 0.8);
+      }
+      font-size: 4rem;
+      transform: scaleY(3);
+      padding-right: 0.5rem;
+      // opacity: 0.8;
+      letter-spacing: 2px;
+      // color: $colorSecondary;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .Companies {
+    padding: calc(28px + (96 - 28) * ((100vw - 300px) / (992 - 300))) 0;
+  
+    .Contents {
+  
+      .Title {
+        font-size: 3rem;
+        font-size: calc(18px + (48 - 18) * ((100vw - 300px) / (992 - 300)));
+        transform: scaleY(3);
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}

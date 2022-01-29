@@ -1,0 +1,12 @@
+@import '../../../global/variables.scss';
+
+.MainLogo {
+  padding: 0.5rem 0;
+
+  .LogoText {
+    font-family: $fontLogo2;
+    font-size: 2.4rem;
+    color: $colorWhite;
+    // transform: scaleY(1.1);
+  }
+}

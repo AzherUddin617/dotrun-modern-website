@@ -1,0 +1,15 @@
+@import '../../../global/variables.scss';
+
+.ContentTitle {
+  font-family: $fontTitle;
+  font-size: 3.8rem;
+  padding-bottom: 2rem;
+  color: $colorWhite;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 775px) {
+  .ContentTitle {
+    font-size: calc(24px + (60 - 24) * ((100vw - 300px) / (775 - 300)));
+  }
+}

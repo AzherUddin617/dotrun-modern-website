@@ -1,0 +1,37 @@
+@import './global/variables.scss';
+
+// .App {
+//   // padding: 0 1.5rem;
+// }
+
+.App .video_bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+.App .video_bg .videoTag {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.App .video_bg .shade {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba($colorDark, 0.8), rgba($colorDark, 0.8));
+}
+.App .video_bg .shade2 {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba($colorBlack, 0.6), rgba($colorBlack, 0.6));
+}

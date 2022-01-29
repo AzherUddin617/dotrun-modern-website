@@ -1,0 +1,189 @@
+@import '../../global/variables.scss';
+
+.AboutVideo {
+  width: 100%;
+  // height: 100vh;
+
+  .Container {
+    height: 100%;
+    padding: 4rem 0;
+
+    .VideoContainer {
+      width: 100%;
+      height: 80vh;
+      max-height: 42vw;
+      overflow: hidden;
+      position: relative;
+      
+      @media (min-width: 1600px) {
+        height: 800px;
+      }
+      .Video {
+        transition: transform 2s cubic-bezier(.16,.67,.46,1.04);
+        // width: 100%;
+        height: 125%;
+        // object-fit: cover;
+        video {
+          height: 100%;
+        }
+      }
+      .Playback {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        &:hover {
+
+          .Backdrop {
+             opacity: 1;
+          }
+          .PlayButton {
+            transform: translate(-50%, -50%) scale(1.1);
+          }
+        } 
+        .Backdrop {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+          opacity: 0;
+          transition: opacity 0.8s ease;
+        }
+        .PlayButton {
+          position: absolute;
+          z-index: 1;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          transition: transform 0.5s ease;
+          cursor: pointer;
+
+          &:hover {
+            
+            .Logo {
+              color: $colorPrimary;
+            }
+            .Circle svg {
+              stroke: $colorPrimary;
+              animation: circleHoverIn 0.6s ease forwards;
+            }
+          }
+          .Logo {
+            color: $colorWhite;
+            font-size: 2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: color 0.5s ease;
+          }
+          .Circle svg {
+            stroke: $colorWhite;
+            transition: stroke 0.5s ease;
+            stroke-dasharray: 346px;
+            transform: rotate(90deg);
+            animation: circleHoverOut 0.6s ease forwards;
+          }
+        }
+      }
+    }
+  }
+  .VideoModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    &.Show {
+      z-index: 100;
+      opacity: 1;
+
+      .Backdrop {
+        opacity: 1;
+      }
+      .VideoContainer {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        // transform: translate(-50%, -50%) scale(1);
+
+        // .Video {
+        //   transform: scale(1);
+        // }
+      }
+    }
+    &.Hide {
+      opacity: 0;
+
+      .VideoContainer {
+        clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
+      }
+    }
+    .Backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .CloseButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: $colorWhite;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 2.2rem;
+      cursor: pointer;
+    }
+    .VideoContainer {
+      width: 80vw;
+      max-width: 80rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // transition: transform 1s ease;
+      clip-path: polygon(40% 40%, 60% 40%, 60% 60%, 40% 60%);
+      transition: clip-path 0.8s ease;
+
+      .Video {
+        width: 100%;
+        // transform: scale(1.4);
+        // transition: inherit;
+        .BigPlayButton {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+@keyframes circleHoverIn {
+  0% {
+    stroke-dashoffset: 346px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes circleHoverOut {
+  0% {
+    stroke-dashoffset: -346px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

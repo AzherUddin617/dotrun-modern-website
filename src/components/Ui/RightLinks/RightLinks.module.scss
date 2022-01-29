@@ -1,0 +1,43 @@
+@import '../../../global/variables.scss';
+
+.RightLinks {
+  position: fixed;
+  z-index: 10;
+  right: 2vw;
+  bottom: 2rem;
+
+  .Link {
+    color: $colorWhite;
+    display: block;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    position: relative;
+
+    &:hover {
+      color: $colorBlack;
+
+      .Circle {
+        transform: translate(-50%, calc(-50% - 3.5px)) scale(1);
+      }
+    }
+    .Circle {
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2rem;
+      height: 2rem;
+      background-color: $colorPrimary;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+      transform: translate(-50%, -60%) scale(0);
+    }
+  }
+}
+
+@media (max-width: 775px) {
+  .RightLinks {
+    display: none;
+  }
+}
+

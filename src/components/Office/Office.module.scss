@@ -1,0 +1,115 @@
+@import '../../global/variables.scss';
+
+.Office {
+  padding: 4rem 0;
+
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    .Contents {
+      flex: 0 0 calc(50% - 1rem);
+
+
+      &.Left {
+        color: $colorWhite;
+        
+        .Details {
+          font-size: 1.2rem;
+          line-height: 1.7;
+          letter-spacing: 1.25px;
+          opacity: 0.75;
+          padding-bottom: 2.5rem;
+
+          @media (max-width: 992px) {
+            font-size: 1.05rem;
+          }
+        }
+      }
+      &.Right {
+        width: 100%;
+        height: 45vh;
+        max-height: 30vw;
+        overflow: hidden;
+
+        @media (min-width: 1600px) {
+          height: 550px;
+        }
+        .Images {
+          // overflow: hidden;
+          position: relative;
+          width: 100%;
+          // height: 45vh;
+          height: 100%;
+
+          .ImageContainer {
+            position: absolute;
+            // z-index: -1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transform: translate(100%, var(--transY));
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+            
+            &.Right {
+              transform: translate(-100%, var(--transY));
+              clip-path: polygon(0 0, 70% 0, 100% 100%, 0 100%);
+              
+              .Image {
+                transform: translateX(100%);
+              }
+            }
+            &.Back {
+              z-index: -1;
+              transform: translate(0, var(--transY));
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+              .Image {
+                transform: translateX(0);
+              }
+            }
+            &.Active {
+              transition: transform 0.8s ease, clip-path 0.8s ease-in;
+              transform: translate(0, var(--transY));
+              clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+              .Image {
+                transform: translateX(0);
+
+              }
+            }
+            .Image {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: inherit;
+              transform: translateX(-100%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 775px) {
+  .Office {
+    .Container {
+
+      flex-direction: row-reverse;
+    
+      .Contents {
+        flex: 0 0 100%;
+    
+        &.Right {
+          height: 50vw;
+          max-height: 50vw;
+          margin-top: 2rem;
+        }
+      }
+    }
+  }
+}

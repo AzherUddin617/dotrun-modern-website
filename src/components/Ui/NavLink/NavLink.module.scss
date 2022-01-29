@@ -1,0 +1,56 @@
+@import '../../../global/variables.scss';
+
+.NavLink {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .Text {
+      color: $colorPrimary;
+    }
+    .Border {
+      animation: borderIn 0.4s ease forwards;
+    }
+  }
+  .Text {
+    color: $colorWhite;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.2rem 0;
+    transition: color 0.4s ease;
+
+    @media (max-width: 775px) {
+      font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (775 - 300)));
+    }
+  }
+  .Border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: $colorPrimary;
+    animation: borderOut 0.4s ease forwards;
+  }
+}
+
+@keyframes borderOut {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes borderIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}

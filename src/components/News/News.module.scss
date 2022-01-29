@@ -1,0 +1,75 @@
+@import '../../global/variables.scss';
+
+.News {
+  padding: 4rem 0;
+
+  .Container {
+
+    .Head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 2rem;
+
+      .Title {
+        padding: 0;
+      }
+    }
+    .Items {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .Item {
+        flex: 0 0 46%;
+        color: $colorWhite;
+
+        .ImageContainer {
+          width: 100%;
+          height: 25vw;
+          transition: opacity 0.4s ease;
+          cursor: pointer;
+
+          @media (min-width: 1600px) {
+            height: 550px;
+          }
+          &:hover {
+            opacity: 0.7;
+          }
+          .Image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          margin-bottom: 1rem;
+        }
+        .Date {
+          font-size: 0.9rem;
+          opacity: 0.6;
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 1.4px;
+          padding: 1rem 0;
+
+          @media (max-width: 992px) {
+            font-size: 0.8rem;
+          }
+        }
+        .Title {
+          font-size: 2rem;
+          font-weight: 500;
+          letter-spacing: 1px;
+          transition: color 0.4s ease;
+
+          @media (max-width: 992px) {
+            font-size: calc(16px + (32 - 16) * ((100vw - 300px) / (775 - 300)));
+          }
+          &:hover {
+            color: $colorPrimary;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

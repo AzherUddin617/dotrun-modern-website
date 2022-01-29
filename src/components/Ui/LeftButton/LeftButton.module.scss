@@ -1,0 +1,21 @@
+@import '../../../global/variables.scss';
+
+.LeftButton {
+  position: fixed;
+  z-index: 10;
+  left: 2vw;
+  bottom: 2rem;
+  transform-origin: left center;
+  transform: rotate(-90deg);
+
+  .Link p {
+    font-size: 0.9rem !important;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 775px) {
+  .LeftButton {
+    display: none;
+  }
+}

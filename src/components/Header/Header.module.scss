@@ -1,0 +1,113 @@
+@import '../../global/variables.scss';
+
+.Header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+
+  .Shade {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to Bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+  }
+  .Contents {
+    padding: 2rem 3.5vw;
+
+    .Top {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .MenuIcon {
+        color: $colorWhite;
+        font-size: 2rem;
+        line-height: 0;
+      }
+      .Nav {
+        padding: 0 1rem;
+
+        li {
+          list-style-type: none;
+        }
+        .List {
+          display: flex;
+          align-items: center;
+          
+          .Item {
+            font-size: 1.05rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            color: $colorWhite;
+          }
+        }
+      }
+      .Logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.5s ease;
+        backface-visibility: hidden;
+
+        &.Small {
+          transform: translate(-50%, -50%) scale(0.8);
+        }
+      }
+      .Button {
+        flex: 1;
+        justify-self: flex-end;
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .Header {
+    .Contents {
+      padding: 1.8rem 3.5vw;
+  
+      .Top {
+        .Nav {
+          display: none;
+          padding: 0 1rem;
+        }
+        .Logo {
+          transform: translate(-50%, -50%) scale(0.8);
+
+          &.Small {
+            transform: translate(0%, -50%) scale(0.6);
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .Header {
+    .Contents {
+      padding: 1.8rem 3.5vw;
+  
+      .Top {
+        flex-direction: row-reverse;
+
+        .Logo {
+          left: 0;
+          transform-origin: left center;
+          transform: translate(0%, -50%) scale(0.8);
+        }
+        .Button {
+          display: none;
+        }
+      }
+    }
+  }
+}
